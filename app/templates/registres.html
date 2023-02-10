@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename= 'CSS/style.css')}}">
+    <title>signup</title>
+</head>
+<body>
+    {%block content%}
+<div class="form-container">
+    <div class="box">
+        <div class="form">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="notification">
+                    {{ messages[0] }}. Go to <a href="/login">login page</a>.
+                </div>
+            {% endif %}
+            {% endwith %}
+            <form action="/signup" method="post">
+                <h2>Sign Up</h2>
+                <div class="inputBox">
+                    <input type="email" name="email" required>
+                    <span>email</span>
+                    <i></i>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="first_name" required>
+                    <span>firstname</span>
+                    <i></i>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="last_name" required>
+                    <span>lastname</span>
+                    <i></i>
+                </div>
+                <div class="inputBox">
+                    <input type="password" name="password" required>
+                    <span>Password</span>
+                    <i></i>
+                </div>
+                <div class="inputBox">
+                    <input type="password" name="password_confirm" required>
+                    <span>confirm the password</span>
+                    <i></i>
+                </div>
+                <input type="submit" value="Sign Up">
+            </form>
+        </div>
+    </div>
+    
+</div>
+{%endblock%}
+    
+</body>
+</html>
